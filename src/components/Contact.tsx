@@ -9,6 +9,9 @@ const Contact: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState<null | { type: 'success' | 'error'; msg: string }>(null);
 
+  // Toggle to disable the entire contact form UI and submission
+  const FORM_DISABLED = true;
+
   const validate = () => {
     if (!name.trim()) return 'Please enter your name.';
     const emailOk = /.+@.+\..+/.test(email);
@@ -19,6 +22,10 @@ const Contact: React.FC = () => {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (FORM_DISABLED) {
+      setStatus({ type: 'error', msg: 'The contact form is currently disabled.' });
+      return;
+    }
     setStatus(null);
     const err = validate();
     if (err) {
@@ -66,54 +73,58 @@ const Contact: React.FC = () => {
         <h2>Contact</h2>
         <p>Want to work together? Reach out:</p>
 
-        <form className="contact-form" onSubmit={onSubmit} noValidate>
-          <div className="form-row">
-            <label htmlFor="name">Name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              autoComplete="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Your name"
-              required
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              required
-            />
-          </div>
-          <div className="form-row">
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Tell me about your project..."
-              required
-            />
-          </div>
-          {status && (
-            <div className={`form-status ${status.type}`}>{status.msg}</div>
-          )}
-          <div className="form-actions">
-            <button className="btn primary" type="submit" disabled={submitting} aria-busy={submitting}>
-              {submitting ? 'Sending…' : 'Send Message'}
-            </button>
-          </div>
-        </form>
+        {!FORM_DISABLED && (
+          <form className="contact-form" onSubmit={onSubmit} noValidate>
+            <fieldset disabled={submitting}>
+              <div className="form-row">
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div className="form-row">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div className="form-row">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={5}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Tell me about your project..."
+                  required
+                />
+              </div>
+              {status && (
+                <div className={`form-status ${status.type}`}>{status.msg}</div>
+              )}
+              <div className="form-actions">
+                <button className="btn primary" type="submit" disabled={submitting} aria-busy={submitting}>
+                  {submitting ? 'Sending…' : 'Send Message'}
+                </button>
+              </div>
+            </fieldset>
+          </form>
+        )}
 
         <div className="contact-links">
           <a className="btn" href="mailto:adarshbalan214@gmail.com">mail me</a>
