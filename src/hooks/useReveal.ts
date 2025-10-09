@@ -28,9 +28,19 @@ export default function useReveal() {
     // Initialize hidden state
     nodes.forEach((el) => el.classList.add('reveal'));
 
+    // Section-level control: hide all non-hero sections initially
+    const sectionIds = ['about','skills','projects','experience','education','certifications','contact'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((sec): sec is HTMLElement => Boolean(sec));
+
+    // Add hidden class to non-hero sections
+    sections.forEach((sec) => sec.classList.add('section--hidden'));
+
     if (prefersReduced) {
       // Immediately show without animation
       nodes.forEach((el) => el.classList.add('show'));
+      sections.forEach((sec) => sec.classList.remove('section--hidden'));
       return;
     }
 
@@ -60,6 +70,7 @@ export default function useReveal() {
       if (!section) return;
       const targets = Array.from(section.querySelectorAll<HTMLElement>(selector));
       targets.forEach((el) => el.classList.add('show'));
+      section.classList.remove('section--hidden');
     };
 
     // If user loaded with a hash (e.g., #projects), show that section immediately
@@ -80,7 +91,6 @@ export default function useReveal() {
     window.addEventListener('hashchange', onHashChange);
 
     // Additionally, observe whole sections to reveal their children reliably
-    const sectionIds = ['about','skills','projects','experience','education','certifications','contact'];
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -89,6 +99,8 @@ export default function useReveal() {
             // reveal all reveal-targets within this section
             const targets = Array.from(sec.querySelectorAll<HTMLElement>(selector));
             targets.forEach((el) => el.classList.add('show'));
+            // unhide the section container itself
+            sec.classList.remove('section--hidden');
             sectionObserver.unobserve(sec);
           }
         }

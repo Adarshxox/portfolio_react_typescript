@@ -129,6 +129,7 @@ html {
   --accent-2: #3fd0c9;
   --border: #232336;
   --radius: 12px;
+  --nav-h: 64px; /* sticky navbar height */
 }
 
 /* Light theme overrides */
@@ -190,7 +191,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: var(--nav-h);
 }
 
 .brand {
@@ -224,6 +225,8 @@ body {
 
 .section {
   padding: 64px 0;
+  /* smooth fade when unhidden */
+  transition: opacity 350ms ease;
 }
 
 .section h2 {
@@ -241,8 +244,9 @@ body {
 }
 
 .hero {
-  padding-top: 96px;
-  padding-bottom: 72px;
+  /* Fill the viewport minus sticky navbar */
+  min-height: calc(100vh - var(--nav-h));
+  padding-block: 24px;
   display: flex;
   justify-content: center;
 }
@@ -510,6 +514,21 @@ body {
 /* Anchor offset so headings aren't hidden by sticky navbar */
 section { scroll-margin-top: 80px; }
 
+/* Hide non-hero sections at load; unhide on intersect */
+.section--hidden {
+  opacity: 0 !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Optional: Scroll snapping for nicer section-by-section scroll */
+main {
+  scroll-snap-type: y proximity;
+}
+.hero, .section {
+  scroll-snap-align: start;
+}
+
 /* Badge color variants */
 .badge--lang { background: rgba(124,92,255,0.12); border-color: rgba(124,92,255,0.35); }
 .badge--fw { background: rgba(63,208,201,0.12); border-color: rgba(63,208,201,0.35); }
@@ -537,9 +556,10 @@ section { scroll-margin-top: 80px; }
 
 /* ============ Responsive: Mobile First Tweaks ============ */
 @media (max-width: 640px) {
+  :root { --nav-h: 56px; }
   .container { padding: 0 1rem; }
 
-  .nav-inner { height: 56px; }
+  .nav-inner { height: var(--nav-h); }
   .brand {
     white-space: nowrap;
     flex-shrink: 0;
