@@ -20,10 +20,13 @@ export default function useReveal() {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>(selector));
     if (!nodes.length) return;
 
+    // Partition nodes: hero (#home) vs others
+    const heroSection = document.getElementById('home');
+    const heroNodes = heroSection ? nodes.filter((el) => heroSection.contains(el)) : [];
+    const otherNodes = nodes.filter((el) => !heroNodes.includes(el));
+
     // Initialize hidden state
-    nodes.forEach((el) => {
-      el.classList.add('reveal');
-    });
+    nodes.forEach((el) => el.classList.add('reveal'));
 
     if (prefersReduced) {
       // Immediately show without animation
@@ -47,7 +50,9 @@ export default function useReveal() {
       }
     );
 
-    nodes.forEach((el) => observer.observe(el));
+    // Show hero immediately; other sections reveal on scroll
+    heroNodes.forEach((el) => el.classList.add('show'));
+    otherNodes.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 }

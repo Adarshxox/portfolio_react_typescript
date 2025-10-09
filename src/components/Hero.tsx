@@ -10,8 +10,8 @@ const Hero: React.FC = () => {
         <div className="hero-text">
           <h1>Hi, I'm <span className="accent">Adarsh B</span></h1>
           <p className="subtitle">
-            <span>I am a Python Full Stack Developer</span>
-            <span>Django, React & REST APIs</span>
+            <span>A Python Full Stack Developer</span>
+            <span>With expertise in Django, React & REST APIs</span>
             <span>Passionate About Building Scalable Web Applications</span>
           </p>
           <p className="subtitle">

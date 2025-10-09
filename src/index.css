@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Ensure padding and borders don't cause overflow/asymmetric spacing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -490,6 +495,12 @@ section { scroll-margin-top: 80px; }
   .container { padding: 0 1rem; }
 
   .nav-inner { height: 56px; }
+  .brand {
+    white-space: nowrap;
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .nav-links {
     gap: 0.5rem;
     overflow-x: auto;
