@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import GlowingCursor from './components/GlowingCursor'
 import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <GlowingCursor />
       <main>
         <Hero />
         <About />
