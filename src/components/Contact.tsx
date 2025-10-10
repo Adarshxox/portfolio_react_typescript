@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { MdEmail } from 'react-icons/md';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaXTwitter, FaInstagram } from 'react-icons/fa6';
 
 const Contact: React.FC = () => {
   const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || '';
@@ -127,11 +130,54 @@ const Contact: React.FC = () => {
         )}
 
         <div className="contact-links">
-          <a className="btn" href="mailto:adarshbalan214@gmail.com">mail me</a>
-          <a className="btn" href="https://www.linkedin.com/in/adarshbalan/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-          <a className="btn" href="https://github.com/Adarshxox" target="_blank" rel="noreferrer noopener">GitHub</a>
-          <a className="btn" href="https://x.com/Adarshxox" target="_blank" rel="noreferrer noopener">X/Twitter</a>
-          <a className="btn" href="https://www.instagram.com/adarshxox/" target="_blank" rel="noreferrer noopener">Instagram</a>
+          <a
+            className="btn icon-btn"
+            href="mailto:adarshbalan214@gmail.com"
+            aria-label="Email"
+            title="Email"
+          >
+            <MdEmail />
+          </a>
+          <a
+            className="btn icon-btn"
+            href="https://www.linkedin.com/in/adarshbalan/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            className="btn icon-btn"
+            href="https://github.com/Adarshxox"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="GitHub"
+            title="GitHub"
+          >
+            <FaGithub />
+          </a>
+          <a
+            className="btn icon-btn"
+            href="https://x.com/Adarshxox"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="X/Twitter"
+            title="X/Twitter"
+          >
+            <FaXTwitter />
+          </a>
+          <a
+            className="btn icon-btn"
+            href="https://www.instagram.com/adarshxox/"
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="Instagram"
+            title="Instagram"
+          >
+            <FaInstagram />
+          </a>
         </div>
       </div>
     </section>
