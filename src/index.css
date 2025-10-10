@@ -606,3 +606,8 @@ main {
   .section { padding: 80px 0; }
   section { scroll-margin-top: 88px; }
 }
+
+/* Hide native mouse cursor across the app (desktop pointers only) */
+@media (pointer: fine) {
+  html, body, #root, * { cursor: none !important; }
+}
