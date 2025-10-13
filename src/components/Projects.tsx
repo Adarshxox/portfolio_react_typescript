@@ -17,25 +17,25 @@ const projects: Project[] = [
   { 
     title: 'Weather App', 
     description: 'Django MVT app consuming a third‑party weather API with responsive UI and robust error handling.', 
-    link: 'https://...',
+    link: 'Not available',
     tech: ['Django', 'Requests', 'HTML/CSS']
   },
   { 
     title: 'LEADapi', 
     description: 'Full‑stack lead management app (React + Django REST, JWT). User auth and CRUD over REST APIs.', 
-    link: 'https://...',
+    link: 'Not available',
     tech: ['React', 'Django REST', 'JWT', 'PostgreSQL']
   },
   { 
     title: 'CartNest', 
     description: 'Customizable e‑commerce platform with product listings, search, cart, checkout, and auth (Django + Tailwind).', 
-    link: 'https://...',
+    link: 'Not available',
     tech: ['Django', 'Tailwind CSS', 'Stripe (optional)']
   },
   { 
     title: 'Taskly', 
     description: 'Lightweight task manager with categories, due dates, status tracking, and auth (Django + SQLite).', 
-    link: 'https://...',
+    link: 'https://todo-django-scwh.onrender.com',
     tech: ['Django', 'SQLite', 'Auth']
   },
 ];
