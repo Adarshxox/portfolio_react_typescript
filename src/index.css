@@ -865,3 +865,4 @@ main {
 @media (pointer: fine) {
   html, body, #root, * { cursor: none !important; }
 }
+}
