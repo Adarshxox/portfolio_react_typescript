@@ -240,7 +240,7 @@ body {
 }
 
 .section {
-  padding: 64px 0;
+  padding: 40px 0;
   /* smooth fade when unhidden */
   transition: opacity 350ms ease;
 }
@@ -564,7 +564,7 @@ body {
 }
 
 /* Anchor offset so headings aren't hidden by sticky navbar */
-section { scroll-margin-top: 80px; }
+section { scroll-margin-top: 70px; }
 
 /* Hide non-hero sections at load; unhide on intersect */
 .section--hidden {
@@ -799,8 +799,8 @@ main {
   }
   .nav-links::-webkit-scrollbar { display: none; }
 
-  .section { padding: 48px 0; }
-  section { scroll-margin-top: 72px; }
+  .section { padding: 32px 0; }
+  section { scroll-margin-top: 65px; }
 
   .hero-text h1 { font-size: 2.2rem; }
   .subtitle { font-size: 1rem; }
@@ -857,8 +857,8 @@ main {
 /* ============ Responsive: Large Screens Enhancements ============ */
 @media (min-width: 1200px) {
   .container { max-width: 1200px; }
-  .section { padding: 80px 0; }
-  section { scroll-margin-top: 88px; }
+  .section { padding: 48px 0; }
+  section { scroll-margin-top: 75px; }
 }
 
 /* Hide native mouse cursor across the app (desktop pointers only) */
