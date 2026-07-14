@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
           <a className={activeId==='education' ? 'active' : ''} href="#education">Education</a>
           <a className={activeId==='certifications' ? 'active' : ''} href="#certifications">Certifications</a>
           <a className={activeId==='contact' ? 'active' : ''} href="#contact">Contact</a>
-          <a href="/Adarsh_B_Resume.pdf" target="_blank" rel="noreferrer noopener" download>Resume</a>
+          <a href="/Adarsh_Resume.pdf" target="_blank" rel="noreferrer noopener" download>Resume</a>
           <button className="btn theme-toggle" type="button" onClick={toggleTheme} aria-label="Toggle theme">
             {theme === 'light' ? '🌙' : '☀️'}
           </button>

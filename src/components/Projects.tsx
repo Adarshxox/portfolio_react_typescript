@@ -12,6 +12,12 @@ type Project = {
 
 const projects: Project[] = [
   { 
+    title: 'AI-Powered Healthcare CRM', 
+    description: 'AI-powered CRM tailored for healthcare professional (HCP) interactions, enabling field representatives to log visits efficiently, generate AI-assisted summaries, and manage customer relationships more effectively. Built with React, FastAPI, LangGraph, and PostgreSQL, demonstrating how generative AI can streamline CRM workflows, reduce manual documentation, and improve data quality.', 
+    link: 'https://github.com/Adarshxox/Project1.git',
+    tech: ['React', 'FastAPI', 'LangGraph', 'PostgreSQL']
+  },
+  { 
     title: 'URL Shortener', 
     description: 'Django MVT web app to transform long URLs into short links with validation, minimal UI, and Dockerized deployment.', 
     link: 'Not available',

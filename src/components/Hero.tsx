@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
             <span>I specialize in RESTful APIs and Docker-based deployments, turning ideas into efficient, user-friendly digital solutions.</span>
           </p>
           <div className="cta" style={{ justifyContent: 'center' }}>
-            <a className="btn primary" href="/Adarsh_B_Resume.pdf" target="_blank" rel="noreferrer noopener" download>
+            <a className="btn primary" href="/Adarsh_Resume.pdf" target="_blank" rel="noreferrer noopener" download>
               Download Resume
             </a>
           </div>
